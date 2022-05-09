@@ -13,6 +13,6 @@ jobs:
   run-shell-script:
     runs-on: ubuntu-latest
     steps:
-      - name: run hello script
-        run: ./.github/scripts/hello.sh
+      - name: run script script
+        run: echo $PATH
         shell: bash
