@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: add 3 and 5
         run: |
-          expr 3+5 > math.txt
+          expr 3 + 5 > math.txt
         shell: bash
       - name: upload output file
         uses: actions/upload-artifact@v3
@@ -29,7 +29,7 @@ jobs:
           name: math
           path: math.txt
   job_2:
-    runs-on: windows-2016
+    runs-on: windows-2019
     needs: job_1
     steps:
       - name: multiply by 9
