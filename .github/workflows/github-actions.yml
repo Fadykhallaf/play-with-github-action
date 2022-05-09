@@ -41,7 +41,7 @@ jobs:
           value='cat math.txt'
           expr $value \* 9 > math.txt
       - name: upload output of second job_2
-        uses: actions/upload-artifact
+        uses: actions/upload-artifact@v3
         with:
           name: math
           path: math.txt
