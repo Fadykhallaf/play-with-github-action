@@ -14,5 +14,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run hello script
-        run: ./github/scripts/hello.sh
+        run: ./.github/scripts/hello.sh
         shell: bash
