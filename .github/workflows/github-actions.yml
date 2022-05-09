@@ -16,3 +16,47 @@ jobs:
       - name: run script script
         run: echo $PATH
         shell: bash
+  job_1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: add 3 and 5
+        run: |
+          expr 3+5 > math.txt
+        shell: bash
+      - name: upload output file
+        uses: actions/upload-artifact@v3
+        with:
+          name: math
+          path: math.txt
+  job_2:
+    runs-on: windows-2016
+    needs: job_1
+    steps:
+      - name: multiply by 9
+        uses: actions/download-artifact@v3
+        with:
+          name: math
+      - shell: bash
+        run: |
+          value='cat math.txt'
+          expr $value \* 9 > math.txt
+      - name: upload output of second job_2
+        uses: actions/upload-artifact
+        with:
+          name: math
+          path: math.txt
+  job_3:
+    runs-on: macos-latest
+    needs: job_2
+    steps:
+      - name: download the job_2 output
+        uses: actions/download-artifact
+        with:
+          name: math
+      - name: print final result
+        shell: bash
+        run: |
+          value='cat math.txt'
+          echo the final result is $value
+
+
