@@ -50,7 +50,7 @@ jobs:
     needs: job_2
     steps:
       - name: download the job_2 output
-        uses: actions/download-artifact
+        uses: actions/download-artifact@v3
         with:
           name: math
       - name: print final result
