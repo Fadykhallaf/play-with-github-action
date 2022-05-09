@@ -38,7 +38,7 @@ jobs:
           name: math
       - shell: bash
         run: |
-          value='cat math.txt'
+          value=`cat math.txt`
           expr $value \* 9 > math.txt
       - name: upload output of second job_2
         uses: actions/upload-artifact@v3
@@ -56,7 +56,7 @@ jobs:
       - name: print final result
         shell: bash
         run: |
-          value='cat math.txt'
+          value=`cat math.txt`
           echo the final result is $value
 
 
